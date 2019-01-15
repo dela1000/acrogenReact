@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-
+import Header from './Header';
 
 import { randomGen } from '../helpers';
 class Selector extends React.Component {
@@ -67,25 +67,28 @@ class Selector extends React.Component {
 
     render() {
       return (
-        <form className="holder-outer"  onSubmit={this.goToFlow}>
-          <div className="holder-inner">
-            {this.optionRange.map((index) =>
-              <div className={"margin-small option-range select-boxes " + (this.state.numberSelected === index ? 'text-white' : 'text-black')} key={index} onClick={() => this.numberSelected(index)}>
-                  {index}
-              </div>
-            )}
-          </div>
-          <div className="holder-inner">
-            {Object.keys(this.state.diffs).map((key, index) => (
-              <div className={"margin-small diff-range select-boxes " + (this.state.diffs[key] ? 'text-white' : 'text-black')} key={index} onClick={() => this.diffSelector(_.lowerCase(key))}>
-                  {key}
-              </div>
-            ))}
-          </div>
-          <div className="holder-inner">
-            <button type="submit">See Flow</button>
-          </div>
-        </form>
+        <div className="holder-outer"> 
+          <Header />
+          <form className="holder-inner" onSubmit={this.goToFlow}>
+            <div className="holder-inner">
+              {this.optionRange.map((index) =>
+                <div className={"margin-small option-range select-boxes " + (this.state.numberSelected === index ? 'text-white' : 'text-black')} key={index} onClick={() => this.numberSelected(index)}>
+                    {index}
+                </div>
+              )}
+            </div>
+            <div className="holder-inner">
+              {Object.keys(this.state.diffs).map((key, index) => (
+                <div className={"margin-small diff-range select-boxes " + (this.state.diffs[key] ? 'text-white' : 'text-black')} key={index} onClick={() => this.diffSelector(_.lowerCase(key))}>
+                    {key}
+                </div>
+              ))}
+            </div>
+            <div className="holder-inner">
+              <button type="submit">See Flow</button>
+            </div>
+          </form>
+        </div>
       )
     }
 }
