@@ -1,0 +1,34 @@
+.holder-outer {
+    width: 100%;
+}
+
+.holder-inner {
+    display: table;
+    margin: 0 auto;
+}
+
+.select-boxes {
+    height: 25px;
+    float: left;
+    background-color: blue;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+.option-range {
+    width: 25px;
+}
+
+.diff-range {
+    width: 125px;
+    text-transform: capitalize;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-black {
+    color: gray;
+}
