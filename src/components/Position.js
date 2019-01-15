@@ -4,14 +4,16 @@ class Position extends React.Component {
     render (){
     const {name, difficulty, image } = this.props.position;
     return (
-      <div>
-        <h3 className="text-center">
-          {name}
-        </h3>
-        <p className="text-center">
-          {difficulty}
-        </p>
-        <img src={image} alt={image} />
+      <div className="margin-top-large">
+        <div>
+          <div className="text-center float-left">
+            {name}
+          </div>
+          <div className="margin-top-small text-center float-right font-size-large">
+            {difficulty}
+          </div>
+        </div>
+        <img className="min-width-100" src={image} alt={image} />
       </div>
     )
   }

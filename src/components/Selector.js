@@ -8,12 +8,7 @@ class Selector extends React.Component {
     state = {
       numberSelected: 4,
       randomIndexPositions: null,
-      diffs: {
-        beginner: true,
-        intermediate: false,
-        advanced:  false,
-        all: false,
-      }
+      diffs: { beginner: true, intermediate: false, advanced: false, all: false }
     }
 
     optionRange = _.range(2, 11);
@@ -28,22 +23,20 @@ class Selector extends React.Component {
       if((diffs.beginner && diffs.intermediate && diffs.advanced) || 
         (!diffs.beginner && !diffs.intermediate && !diffs.advanced) || 
         (key === "all")){
-        diffs = {
-          beginner: false,
-          intermediate: false,
-          advanced:  false,
-          all: true,
-        }
+        diffs = { beginner: false, intermediate: false, advanced:  false, all: true }
       }
-      this.setState({ diffs })
-      this.createFlow(this.state.numberSelected, diffs)
+      this.setState({ diffs }, () => {
+        this.createFlow(this.state.numberSelected, this.state.diffs)
+      })
     }
 
     numberSelected = (index) => {
       let numberSelected = {...this.state.numberSelected}
       numberSelected = index;
       this.setState({ numberSelected })
-      this.createFlow(index, this.state.diffs)
+      this.setState({ numberSelected }, () => {
+        this.createFlow(this.state.numberSelected, this.state.diffs)
+      })
     }
 
     createFlow = (moves, diffs) => {
@@ -79,7 +72,7 @@ class Selector extends React.Component {
             </div>
             <div className="holder-inner">
               {Object.keys(this.state.diffs).map((key, index) => (
-                <div className={"margin-small diff-range select-boxes " + (this.state.diffs[key] ? 'text-white' : 'text-black')} key={index} onClick={() => this.diffSelector(_.lowerCase(key))}>
+                <div className={"margin-small diff-range select-boxes " + (this.state.diffs[key] ? 'text-white' : 'text-black')} key={index} onClick={() => this.diffSelector(key)}>
                     {key}
                 </div>
               ))}

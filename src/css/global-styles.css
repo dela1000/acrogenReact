@@ -25,10 +25,49 @@
     text-transform: capitalize;
 }
 
+.min-width-100 {
+    height: auto; 
+    width: auto; 
+    max-width: 350px; 
+    max-height: 350px;
+}
+
 .text-white {
     color: white;
 }
 
 .text-black {
     color: gray;
+}
+
+.font-size-mini {
+    font-size: 8px;
+}
+
+.font-size-tiny {
+    font-size: 9px;
+}
+
+.font-size-small {
+    font-size: 10px;
+}
+
+.font-size-medium {
+    font-size: 11px;
+}
+
+.font-size-large {
+    font-size: 12px;
+}
+
+.font-size-largest {
+    font-size: 14px;
+}
+
+.font-size-huge {
+    font-size: 16px;
+}
+
+.font-size-immense {
+    font-size: 18px;
 }
